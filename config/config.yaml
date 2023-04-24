@@ -1,0 +1,4 @@
+http:
+  port: 80
+vk-api:
+  key: <API-KEY>
