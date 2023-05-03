@@ -1,0 +1,7 @@
+{"level":"info","msg":"Server starting!","time":"2023-05-03T12:57:36+03:00"}
+{"level":"error","msg":"err: user not found","time":"2023-05-03T12:57:56+03:00"}
+{"level":"error","msg":"err: User was deleted or banned","time":"2023-05-03T12:58:21+03:00"}
+{"level":"error","msg":"err: user is private","time":"2023-05-03T12:58:34+03:00"}
+{"level":"error","msg":"err: user is private","time":"2023-05-03T12:58:40+03:00"}
+{"level":"error","msg":"err: User was deleted or banned","time":"2023-05-03T12:58:43+03:00"}
+{"level":"info","msg":"Server starting!","time":"2023-05-03T13:02:53+03:00"}
