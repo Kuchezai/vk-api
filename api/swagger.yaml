@@ -1,0 +1,61 @@
+swagger: '2.0'
+info:
+  title: Web aplication to VK API
+  version: 0.0.1
+ 
+paths:
+  /user/{id}:
+    get:
+      tags:
+        - User
+      summary: Get user by ID
+      description: Returns a user object based on ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of user to return
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/User'
+        '404':
+          description: User not found
+  /user/{id}/friends:
+    get:
+      tags:
+        - User
+      summary: Get user's friends by ID
+      description: Returns a list of friends for a given user ID
+      parameters:
+        - name: id
+          in: path
+          description: ID of user whose friends to return
+          required: true
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/Friends'
+        '404':
+          description: User not found
+definitions:
+  User:
+    type: object
+    properties:
+      ID:
+        type: integer
+        description: ID of the user
+      FirstName:
+        type: string
+        description: First name of the user
+      SecondName:
+        type: string
+        description: Second name of the user
+  Friends:
+    type: array
+    items:
+      $ref: '#/definitions/User'
