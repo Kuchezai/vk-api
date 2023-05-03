@@ -5,10 +5,10 @@
 
 ### Установка
 
-`git clone https://github.com/Kuchezai/vk-api`
-`cd vk-api`
-`go get ./...`
-`go run cmd/app/main.go`
+`git clone https://github.com/Kuchezai/vk-api`  
+`cd vk-api`  
+`go get ./...`  
+`go run cmd/app/main.go`  
 
 ### Документация 
 Swagger документация приложения лежит в директории api 
