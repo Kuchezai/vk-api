@@ -12,8 +12,8 @@ type UserWebAPI struct {
 	AccessToken string
 }
 
-func NewUserWebAPI() {
-
+func NewUserWebAPI(token string) *UserWebAPI {
+	return &UserWebAPI{token}
 }
 
 // duplicates user from entity. but json tags are kept only here -> user from entity package don't know about implementation -> no abstraction leak
@@ -57,7 +57,7 @@ func (r *UserWebAPI) User(userID string) (entity.User, error) {
 	}
 
 	if len(ur.Response) == 0 {
-		return entity.User{}, fmt.Errorf("user not found")
+		return entity.User{}, fmt.Errorf("err: %s", "user not found")
 	}
 
 	if ur.Error.Code != 0 {
@@ -86,6 +86,8 @@ func (r *UserWebAPI) FriendsByID(userID string) ([]entity.User, error) {
 	if fr.Error.Code != 0 {
 		if fr.Error.Code == 100 {
 			return nil, fmt.Errorf("err: %s", "invalid user_id")
+		} else if fr.Error.Code == 30 {
+			return nil, fmt.Errorf("err: %s", "user is private")
 		} else {
 			return nil, fmt.Errorf("err: %s", fr.Error.Msg)
 		}
