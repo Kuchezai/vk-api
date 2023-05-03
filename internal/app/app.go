@@ -26,6 +26,6 @@ func Run(cfg *config.Config) {
 	userHandler := v1.NewUserHandler(userUsecase, logger)
 
 	router := gin.New()
-	http.StartNewServer(router, logger, userHandler)
+	http.StartNewServer(router, logger, userHandler, cfg.HTTP.Port)
 
 }

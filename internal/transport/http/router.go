@@ -13,7 +13,7 @@ type logger interface {
 	Fatal(msg string)
 }
 
-func StartNewServer(router *gin.Engine, l logger, uh *v1.UserHandler) {
+func StartNewServer(router *gin.Engine, l logger, uh *v1.UserHandler, port string) {
 	router.Use(gin.Logger())
 	router.Use(gin.Recovery())
 
@@ -21,6 +21,6 @@ func StartNewServer(router *gin.Engine, l logger, uh *v1.UserHandler) {
 	router.GET("/user/:id/friends", uh.GetUserFriends)
 
 	l.Info("Server starting!")
-	router.Run()
+	router.Run(port)
 
 }
